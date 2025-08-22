@@ -1,0 +1,252 @@
+.containerTudo {
+    height: 100vh;
+    background: url(../images/ciclista.jpeg)no-repeat center center/cover;
+}
+
+.containerEditar {
+    display: flex;
+    flex-direction: row;
+    padding: 60px;
+    justify-content: center;
+
+    .gridCadastro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    form {
+
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFE7DC;
+        padding: 30px;
+        border-radius: 30px;
+
+
+        h2 {
+            text-align: center;
+            color: #FC580C;
+            font-size: 30px;
+            font-weight: 700;
+            padding: 40px 0 70px 0;
+        }
+
+        .nomeDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #FC580C;
+        }
+
+        .descDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+
+
+        .imageDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+
+        .label {
+            font-size: 18px;
+            color: #FC580C;
+        }
+
+
+
+        .nome {
+            width: 100%;
+            background-color: #FFC6AC;
+            border: none;
+            text-decoration: none;
+            outline: none;
+            padding: 12px;
+            border-radius: 20px;
+            font-size: 15px;
+            color: #ffff;
+        }
+
+        .imageDiv {
+            display: flex;
+            flex-direction: column;
+
+            .imagem {
+                width: 100%;
+                text-decoration: none;
+                outline: none;
+                background-color: #FC580C;
+
+                border: none;
+                text-decoration: none;
+                outline: none;
+                padding: 12px;
+                border-radius: 25px;
+                font-size: 15px;
+            }
+        }
+
+
+
+
+        .area {
+            width: 100%;
+            max-height: 70px;
+            border: 0;
+            background-color: #FFC6AC;
+            border-radius: 20px;
+            padding: 12px;
+            outline: none;
+            color: #fff;
+        }
+
+        .precoDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            width: 100%;
+
+            .preco {
+
+                width: 100%;
+                background-color: #FFC6AC;
+                border: none;
+                text-decoration: none;
+                outline: none;
+                padding: 12px;
+                border-radius: 20px;
+                font-size: 15px;
+            }
+        }
+
+
+        .caixaMae {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0;
+            width: 90%;
+
+
+
+
+            .qunatidadeDiv {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .qunat {
+                    width: 80%;
+                    background-color: #eaeaea;
+                    border: none;
+                    text-decoration: none;
+                    outline: none;
+                    padding: 8px;
+                    border-radius: 6px;
+                    font-size: 15px;
+                }
+            }
+
+            .categoriaDiv {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .categ {
+                    width: 80%;
+                    background-color: #eaeaea;
+                    border: none;
+                    text-decoration: none;
+                    outline: none;
+                    padding: 8px;
+                    border-radius: 6px;
+                    font-size: 15px;
+                }
+            }
+        }
+
+
+
+        .botoes {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding-bottom: 20px;
+            margin-top: 35px;
+
+            .botoesFirst {
+                display: flex;
+                flex-direction: row;
+
+            }
+
+            .botaoCancelar {
+                background-color: #121763;
+                color: white;
+                padding: 8px;
+                border: 0;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+
+            .botaoSalvar {
+                background-color: #FC580C;
+                ;
+                color: white;
+                padding: 10px;
+                border: 0;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+
+            .botaoDelet {
+                background-color: red;
+                color: white;
+                padding: 8px;
+                border: 0;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+        }
+    }
+}

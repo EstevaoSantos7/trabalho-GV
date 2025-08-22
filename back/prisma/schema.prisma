@@ -11,8 +11,10 @@ model Category {
   id          Int       @id @default(autoincrement())
   name        String
   description String?
+  imageUrl    String?
   products    Product[]
 }
+
 
 model Product {
   id          Int       @id @default(autoincrement())

@@ -1,0 +1,109 @@
+.containerTudo {
+    height: 100vh;
+    background: url(../images/ciclista.jpeg)no-repeat center center/cover;
+}
+
+.containerCadastro {
+    display: flex;
+    flex-direction: row;
+    padding: 60px;
+
+    justify-content: center;
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        background-color: #FFE7DC;
+        padding: 30px;
+        border-radius: 25px;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            color: #FC580C;
+            font-size: 40px;
+            font-weight: 600;
+            padding: 20px 0px;
+            width: 50%;
+            text-align: center;
+        }
+
+        .nomeDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            width: 90%;
+            justify-content: start;
+            
+        }
+
+        .descDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            
+            margin-bottom: 15px;
+           width: 90%;
+            justify-content: start;
+        }
+
+        .label {
+            font-size: 25px;
+            color: #FC580C;
+        }
+
+        .nome {
+        
+            width: 95%;
+            background-color: #FFC6AC;
+            border: none;
+            text-decoration: none;
+            outline: none;
+            padding: 12px;
+            border-radius: 22px;
+            font-size: 15px;
+        }
+
+        .area {
+            width: 95%;
+            
+            border: 0;
+            background-color: #FFC6AC;
+            border-radius: 22px;
+            padding: 8px;
+            outline: none;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            margin-top: 30px;
+            padding-bottom: 20px;
+
+
+
+            .botaoSalvar {
+                background-color: #FC580C;
+
+                color: white;
+                padding: 10px;
+                border: 0;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+        }
+    }
+}

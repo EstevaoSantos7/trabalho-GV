@@ -1,0 +1,132 @@
+.containerTudo {
+    height: 100vh;
+    background: url(../images/ciclista.jpeg)no-repeat center center/cover;  
+}
+
+.containerEditar {
+    display: flex;
+    flex-direction: row;
+    padding: 60px;
+    justify-content: center;
+
+    .imagem {
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+
+
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width:500px;
+        background-color: #FFE7DC;
+        padding: 30px;
+        border-radius: 25px;
+        justify-content: center;
+        align-items: center;
+gap: 10px;
+
+        h2 {
+            text-align: center;
+            color: #FC580C;
+            font-size: 45px;
+            font-weight: 700;
+            padding: 20px 0px;
+            width: 280px;
+        }
+
+        .nomeDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            width: 70%;
+        }
+
+        .descDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-size: 20px;
+            color: #FC580C;
+        }
+
+        .nome {
+            width: 100%;
+            background-color: #FFC6AC;
+            border: none;   
+            text-decoration: none;
+            outline: none;
+            padding: 14px;
+            border-radius: 23px;
+            font-size: 15px;
+        }
+        .image{
+             background-color: #FC580C;
+             padding: 14px;
+             color: #fff;
+             border-radius: 25px;
+        }
+
+        .area {
+            width: 80%;
+            max-width: 80%;
+            border: 0;
+            background-color: #eaeaea;
+            border-radius: 6px;
+            padding: 5px;
+            outline: none;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            margin-top: 30px;
+
+            .botaoDelet {
+                  background-color: #FC580C;
+
+                color: white;
+                padding: 10px;
+                border: 0;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+
+            .botaoSalvar {
+                background-color: #FC580C;
+
+                color: white;
+                padding: 10px;
+                border: 0;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+
+                }
+            }
+        }
+    }
+}
