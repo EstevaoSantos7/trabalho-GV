@@ -78,7 +78,7 @@ export default function CadastroProduto() {
         <div className={style.containerEditar}>
 
           <form onSubmit={handleSubmit}>
-            <h2>Cadastrar Produto</h2>
+            <h2>Cadastro de Produto</h2>
             <div className={style.gridCadastro}>
 
 
@@ -133,8 +133,17 @@ export default function CadastroProduto() {
 
 
 
-
-              {/* <div className={style.categoriaDiv}>
+              <div className={style.qunatidadeDiv}>
+                <label className={style.label} htmlFor="quantidade">Quantidade</label>
+                <input
+                  className={style.qunat}
+                  type="number"
+                  id="quantidade"
+                  value={quantidade}
+                  onChange={(e) => setQuantidade(e.target.value)}
+                />
+              </div>
+              <div className={style.categoriaDiv}>
                 <label className={style.label} htmlFor="categoria">Categoria</label>
                 <select
                   className={style.categ}
@@ -142,14 +151,15 @@ export default function CadastroProduto() {
                   value={categoriaId}
                   onChange={(e) => setCategoriaId(e.target.value)}
                 >
-                <option value="">Sem categoria</option>
+                  <option value="">Sem categoria</option>
                   {categorias.map(categoria => (
                     <option key={categoria.id} value={categoria.id}>
                       {categoria.name}
-                      </option>
+                    </option>
                   ))}
-                  </select>
-              </div> */}
+                </select>
+              </div>
+
 
             </div>
 

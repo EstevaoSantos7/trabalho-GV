@@ -23,8 +23,11 @@ export default function EditarProduto() {
   const [quantidade, setQuantidade] = useState(0);
   const [imagemFile, setImagemFile] = useState(null);
   const [imagemUrlAtual, setImagemUrlAtual] = useState("");
+  const [categoriaId, setCategoriaId] = useState("");
+  const [categorias, setCategorias] = useState([]);
   const [erro, setErro] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [fileName, setFileName] = useState("Adicionar Imagem");
 
   const isValid =
     nome.trim() !== "" &&
@@ -33,24 +36,26 @@ export default function EditarProduto() {
     (imagemFile !== null || imagemUrlAtual !== "") &&
     !isNaN(parseFloat(preco));
 
-  // Buscar produto
+  // Buscar produto e categorias
   useEffect(() => {
-    async function carregarProduto() {
+    (async () => {
       try {
-        const resProduto = await api.get(`/produtos/${id}`);
-        const produto = resProduto.data;
-
+        const res = await api.get(`/produtos/${id}`);
+        const produto = res.data;
         setNome(produto.name);
         setDescricao(produto.description);
         setPreco(produto.price);
         setQuantidade(produto.quantity);
         setImagemUrlAtual(produto.imageUrl);
+        setCategoriaId(produto.categoryId || "");
       } catch (err) {
         setErro("Erro ao buscar produto.");
       }
-    }
+    })();
 
-    carregarProduto();
+    api.get("/categorias")
+      .then(res => setCategorias(res.data))
+      .catch(err => console.error("Erro ao buscar categorias:", err));
   }, [id]);
 
   // Editar produto
@@ -59,7 +64,7 @@ export default function EditarProduto() {
 
     let fileToSend = imagemFile;
 
-    // Reusar imagem atual, se não selecionar nova
+    // Se não selecionou nova imagem, reusar imagem atual
     if (!imagemFile && imagemUrlAtual) {
       try {
         const response = await fetch(`http://localhost:3333${imagemUrlAtual}`);
@@ -84,11 +89,14 @@ export default function EditarProduto() {
     formData.append("description", descricao);
     formData.append("price", preco);
     formData.append("quantity", quantidade);
+    formData.append("categoryId", categoriaId || "");
 
     try {
       setUploading(true);
       await api.patch(`/produtos/${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
       });
       navigate("/produtos");
     } catch (err) {
@@ -106,7 +114,7 @@ export default function EditarProduto() {
       await api.delete(`/produtos/${id}`);
       navigate("/produtos");
     } catch (err) {
-      setErro("Erro ao deletar produto.");
+      setErro(err.message);
     }
   }
 
@@ -134,16 +142,28 @@ export default function EditarProduto() {
                   required
                 />
               </div>
+
               <div className={style.imageDiv}>
-                <label className={style.label} htmlFor="imagem">Atualizar imagem</label>
+                <label className={style.label} htmlFor="imagem">
+                  Atualizar imagem
+                </label>
+
+                {/* input escondido */}
                 <input
+                  id="imagem"
                   className={style.imagem}
                   type="file"
-                  id="imagem"
                   accept="image/*"
-                  onChange={(e) => setImagemFile(e.target.files[0])}
+                  onChange={(e) => {
+                    setImagemFile(e.target.files[0]);
+                    setFileName(e.target.files[0]?.name || "Nenhum arquivo selecionado");
+                  }}
+                  style={{ display: "none" }}
                 />
+
+                
               </div>
+
 
               <div className={style.descDiv}>
                 <label className={style.label} htmlFor="descricao">Descrição</label>
@@ -169,8 +189,33 @@ export default function EditarProduto() {
                 />
               </div>
 
+              <div className={style.qunatidadeDiv}>
+                <label className={style.label} htmlFor="quantidade">Quantidade</label>
+                <input
+                  className={style.qunat}
+                  type="number"
+                  id="quantidade"
+                  value={quantidade}
+                  onChange={(e) => setQuantidade(e.target.value)}
+                />
+              </div>
 
-
+              <div className={style.categoriaDiv}>
+                <label className={style.label} htmlFor="categoria">Categoria</label>
+                <select
+                  className={style.categ}
+                  id="categoria"
+                  value={categoriaId}
+                  onChange={(e) => setCategoriaId(e.target.value)}
+                >
+                  <option value="">Sem categoria</option>
+                  {categorias.map(categoria => (
+                    <option key={categoria.id} value={categoria.id}>
+                      {categoria.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <div className={style.botoes}>

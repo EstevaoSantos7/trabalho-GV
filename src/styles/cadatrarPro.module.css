@@ -13,6 +13,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 25px;
+        width: 100%;
     }
 
     form {
@@ -31,7 +32,7 @@
             text-align: center;
             color: #FC580C;
             font-size: 30px;
-            font-weight: 700;
+            font-weight: 900;
             padding: 40px 0 70px 0;
         }
 
@@ -48,6 +49,46 @@
             flex-direction: column;
             gap: 15px;
             margin-bottom: 15px;
+        }
+
+        .qunatidadeDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #FC580C;
+
+            .qunat {
+                width: 100%;
+                background-color: #FFC6AC;
+                border: none;
+                text-decoration: none;
+                outline: none;
+                padding: 12px;
+                border-radius: 20px;
+                font-size: 15px;
+                color: #ffff;
+            }
+        }
+
+        .categoriaDiv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #FC580C;
+
+            .categ {
+                width: 100%;
+                background-color: #FFC6AC;
+                border: none;
+                text-decoration: none;
+                outline: none;
+                padding: 12px;
+                border-radius: 20px;
+                font-size: 15px;
+                color: #ffff;
+            }
         }
 
 
@@ -82,8 +123,31 @@
         .imageDiv {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+
+            .label {
+                background: #FC580C;
+                color: white;
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 25px;
+                cursor: pointer;
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+
+            .fileName {
+                margin-left: 10px;
+                font-size: 14px;
+                color: #555;
+            }
 
             .imagem {
+
+                display: none;
                 width: 100%;
                 text-decoration: none;
                 outline: none;
@@ -101,9 +165,11 @@
 
 
 
+
         .area {
             width: 100%;
-            max-height: 70px;
+            max-width: 300px;
+            max-height: 50px;
             border: 0;
             background-color: #FFC6AC;
             border-radius: 20px;
